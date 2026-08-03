@@ -138,6 +138,7 @@ if [ -f pyproject.toml ]; then pip3 install poetry && poetry install; fi
             steps {
                 withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')]) {
                     sh '''
+                    export GIT_TERMINAL_PROMPT=0
                     rm -rf k8s-manifests
 
                     git clone --depth 1 https://${GITHUB_TOKEN}@github.com/BackstageSSPPoC/k8s-manifests.git
