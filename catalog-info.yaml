@@ -9,7 +9,7 @@ metadata:
     sonarqube.org/project-key: dssp-targetp-65
     jenkins.io/job-full-name: Backstage_SSP_PoC/DSSP-TargetP-65/main
     argocd/app-name: dssp-targetp-65-dev
-    prometheus.io/rule: "kube_pod_container_resource_requests{pod=~'dssp-targetp-65.*'}|resource,kube_pod_container_status_restarts_total{pod=~'dssp-targetp-65.*'}|container"
+    prometheus.io/rule: "kube_pod_status_phase{pod=~'dssp-targetp-65.*'}|phase,kube_pod_container_status_restarts_total{pod=~'dssp-targetp-65.*'}|container"
     prometheus.io/alert: "KubePodCrashLooping,KubeDeploymentReplicasMismatch,KubePodNotReady,KubeContainerWaiting,KubeContainerOOMKilled,KubeDeploymentRolloutStuck"
     prometheus.io/labels: "namespace=dev"
     grafana/overview-dashboard: 'http://34.30.183.34/grafana/d/ad84zrr/service-overview-template?var-pod_prefix=dssp-targetp-65&var-namespace=dev'
